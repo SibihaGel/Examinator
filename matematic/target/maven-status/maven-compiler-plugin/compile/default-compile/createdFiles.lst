@@ -1,0 +1,6 @@
+org\employeeservice\springcloudborisov\Question.class
+org\employeeservice\springcloudborisov\QuestionRepository.class
+org\employeeservice\springcloudborisov\Question$QuestionBuilder.class
+org\employeeservice\springcloudborisov\MathController.class
+org\employeeservice\springcloudborisov\MathService.class
+org\employeeservice\springcloudborisov\SpringCloudBorisovApplication.class

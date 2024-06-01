@@ -1,0 +1,18 @@
+
+FROM eclipse-temurin:17.0.8_7-jre AS build
+
+# Установка Maven
+RUN apt-get update && apt-get install -y maven
+
+COPY /examinator/target/examinator-0.0.1-SNAPSHOT.jar /app/examinator.jar
+COPY /matematic/target/mathMicroApplication-0.0.1-SNAPSHOT.jar /app/math.jar
+COPY /examinator/target/examinator-0.0.1-SNAPSHOT.jar /app/examinator.jar
+COPY /history/target/history-0.0.1-SNAPSHOT.jar /app/history.jar
+COPY /eureka-service/target/eureka-service-0.0.1-SNAPSHOT.jar /app/eureka-service.jar
+
+EXPOSE 8085
+EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8761
+ENTRYPOINT ["java", "-jar", "/app/examinator.jar", "/app/math.jar", "/app/history.jar", "/app/eureka-service.jar"]
+# docker run -p 8085:8085 -p 8081:8081 -p 8082:8082 -p 8761:8761 eclipse-temurin:17.0.8_7-jre

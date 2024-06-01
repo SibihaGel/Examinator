@@ -1,0 +1,28 @@
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+
+server:
+  port: 8085
+
+spring:
+  application:
+    name: examinator
+
+logging:
+  file:
+    path: logs/
+  pattern:
+    level: "%5p [${ExaminatorApplication:},%X{traceId:-},%X{spanId:-}]"
+
+
+
